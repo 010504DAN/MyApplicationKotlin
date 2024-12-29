@@ -7,38 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/cakesButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Торты"
-            app:layout_constraintBottom_toTopOf="@+id/orderButton"
-            tools:layout_editor_absoluteX="16dp" />
-
-        <Button
-            android:id="@+id/drinksButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Напитки"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="16dp" />
-    </LinearLayout>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="132dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

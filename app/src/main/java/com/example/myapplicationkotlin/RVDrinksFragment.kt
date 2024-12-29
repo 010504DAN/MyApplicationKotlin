@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.myapplicationkotlin.databinding.FragmentRVCakesBinding
 import com.example.myapplicationkotlin.databinding.FragmentRVDrinksBinding
 
@@ -30,11 +31,13 @@ class RVDrinksFragment : Fragment() {
 
     private fun initRV() {
         drinksAdapter = DrinksAdapter(drinksList){
-            val bundle = Bundle()
-            bundle.putParcelable("drinks", drinksList[it])
-            val  detailFragment = DetailFragment()
-            detailFragment.arguments = bundle
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, detailFragment).addToBackStack(null).commit()
+            findNavController().navigate(
+                RVDrinksFragmentDirections.actionRVDrinksFragmentToDetailFragment(
+                image = drinksList[it].image,
+                name = drinksList[it].name,
+                desc = drinksList[it].desc,
+                prise = drinksList[it].prise
+            ))
         }
         binding.rvDrink.adapter = drinksAdapter
     }
@@ -43,6 +46,9 @@ class RVDrinksFragment : Fragment() {
         drinksList.add(Drinks(imageDrinks1,"Молочный Шейк",
             "Классический молочный шейк с ванильным и шоколадным вкусом.",
             " 200 сом"))
+        drinksList.add(Drinks(imageDrinks2,"Коктейль Манго",
+            "Тропический коктейль с манго и маракуйей. Легкий, освежающий вкус идеально подходит для летних дней.",
+            "200 сом"))
         drinksList.add(Drinks(imageDrinks2,"Коктейль Манго",
             "Тропический коктейль с манго и маракуйей. Легкий, освежающий вкус идеально подходит для летних дней.",
             "200 сом"))

@@ -70,6 +70,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Заказать через WhatsApp"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        tools:layout_editor_absoluteX="16dp" />
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Назад"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp" />
 

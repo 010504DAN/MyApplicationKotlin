@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment2">
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.myapplicationkotlin.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="image"
+            android:defaultValue="defValue"
+            app:argType="string"/>
+        <argument
+            android:name="name"
+            android:defaultValue="defValue"
+            app:argType="string"/>
+        <argument
+            android:name="desc"
+            android:defaultValue="defValue"
+            app:argType="string"/>
+        <argument
+            android:name="prise"
+            android:defaultValue="defValue"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/RVCakesFragment"
+        android:name="com.example.myapplicationkotlin.RVCakesFragment"
+        android:label="fragment_r_v_cakes"
+        tools:layout="@layout/fragment_r_v_cakes" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            android:id="@+id/action_RVCakesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RVDrinksFragment"
+        android:name="com.example.myapplicationkotlin.RVDrinksFragment"
+        android:label="fragment_r_v_drinks"
+        tools:layout="@layout/fragment_r_v_drinks" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            android:id="@+id/action_RVDrinksFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.example.myapplicationkotlin.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment2_to_RVDrinksFragment"
+            app:destination="@id/RVDrinksFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_RVCakesFragment"
+            app:destination="@id/RVCakesFragment" />
+    </fragment>
+</navigation>
